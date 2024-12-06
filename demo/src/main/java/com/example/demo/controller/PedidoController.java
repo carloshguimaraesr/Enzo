@@ -33,4 +33,11 @@ public class PedidoController {
     public void excluirPedido(@PathVariable Long id) {
         service.excluirPedido(id);
     }
+
+    @PutMapping("/{id}")
+    public Pedido atualizarPedido(@PathVariable Long id, @RequestBody Pedido pedidoAtualizado) {
+        return service.atualizarPedido(id, pedidoAtualizado);
+    }
+
+
 }

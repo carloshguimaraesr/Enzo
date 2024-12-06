@@ -36,4 +36,21 @@ public class PedidoService {
             throw new RuntimeException("Só é possível excluir pedidos cancelados");
         }
     }
+
+    public Pedido atualizarPedido(Long id, Pedido pedidoAtualizado) {
+        Pedido pedidoExistente = repository.findById(id)
+                .orElseThrow(() -> new RuntimeException("Pedido não encontrado"));
+
+        pedidoExistente.setCliente(pedidoAtualizado.getCliente());
+        pedidoExistente.setEnderecoEntrega(pedidoAtualizado.getEnderecoEntrega());
+        pedidoExistente.setItens(pedidoAtualizado.getItens());
+        pedidoExistente.setPlataforma(pedidoAtualizado.getPlataforma());
+        pedidoExistente.setStatus(pedidoAtualizado.getStatus());
+        
+        return repository.save(pedidoExistente);
+    }
+
+
+
+
 }

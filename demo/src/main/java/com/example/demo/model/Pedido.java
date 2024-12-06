@@ -23,10 +23,8 @@ public class Pedido {
     @Enumerated(EnumType.STRING)
     private Plataforma plataforma;
 
-    // Construtor padrão
     public Pedido() {}
 
-    // Getters e Setters
     public Long getId() {
         return id;
     }
@@ -75,7 +73,6 @@ public class Pedido {
         this.plataforma = plataforma;
     }
 
-    // Enum StatusPedido
     public enum StatusPedido {
         ABERTO,
         EM_PREPARACAO,
@@ -83,7 +80,6 @@ public class Pedido {
         CANCELADO
     }
 
-    // Enum Plataforma
     public enum Plataforma {
         MOBILE,
         PRESENCIAL,
